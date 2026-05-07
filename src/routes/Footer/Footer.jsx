@@ -8,7 +8,7 @@ export default function Footer() {
         <span className="bm-footer__name">ByteMorph</span>
       </div>
       <div className="bm-footer__info">
-        55 formats &nbsp;·&nbsp; FFmpeg + Sharp + Pandoc &nbsp;·&nbsp; Portfolio 2026
+        55 formats &nbsp;·&nbsp; FFmpeg + Sharp + Pandoc &nbsp;·&nbsp; All Rights Reserved 2026
       </div>
       <div className="bm-footer__credit">Built with React + Three.js</div>
     </footer>
