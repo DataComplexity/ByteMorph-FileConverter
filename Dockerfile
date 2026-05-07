@@ -10,6 +10,7 @@ FROM node:20-slim
 RUN apt-get update && apt-get install -y \
     libreoffice \
     pandoc \
+    calibre \
     p7zip-full \
     imagemagick \
     ghostscript \

@@ -6,22 +6,13 @@ const { promisify } = require('util');
 
 const execFileAsync = promisify(execFile);
 
+const checkBinary = require('../../../utils/binaryCheck');
+
 // Check once on module load
-const CALIBRE_INSTALLED = (() => {
-  const winPath = 'C:\\Program Files\\Calibre2';
-  try {
-    execSync('where ebook-convert', { stdio: 'ignore' });
-    return true;
-  } catch {
-    if (fs.existsSync(path.join(winPath, 'ebook-convert.exe'))) {
-      if (!process.env.PATH.includes(winPath)) {
-        process.env.PATH = `${winPath};${process.env.PATH}`;
-      }
-      return true;
-    }
-    return false;
-  }
-})();
+const CALIBRE_INSTALLED = checkBinary('ebook-convert', [
+  'C:\\Program Files\\Calibre2\\ebook-convert.exe'
+]);
+
 
 console.log(`[ByteMorph] Engine Load → Calibre    : ${CALIBRE_INSTALLED ? '✅' : '❌ NOT FOUND'}`);
 

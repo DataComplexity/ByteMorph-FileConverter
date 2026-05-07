@@ -6,15 +6,13 @@ const { promisify } = require('util');
 
 const execFileAsync = promisify(execFile);
 
+const checkBinary = require('../../../utils/binaryCheck');
+
 // Check once on module load
-const PANDOC_INSTALLED = (() => {
-  try {
-    execSync('where pandoc', { stdio: 'ignore' });
-    return true;
-  } catch {
-    return false;
-  }
-})();
+const PANDOC_INSTALLED = checkBinary('pandoc', [
+  'C:\\Program Files\\Pandoc\\pandoc.exe'
+]);
+
 
 console.log(`[ByteMorph] Engine Load → Pandoc     : ${PANDOC_INSTALLED ? 'FOUND' : 'NOT FOUND'}`);
 

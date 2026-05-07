@@ -6,22 +6,13 @@ const { promisify } = require('util');
 
 const execFileAsync = promisify(execFile);
 
+const checkBinary = require('../../../utils/binaryCheck');
+
 // Check once on module load
-const LIBRE_INSTALLED = (() => {
-  const winPath = 'C:\\Program Files\\LibreOffice\\program';
-  try {
-    execSync('where soffice', { stdio: 'ignore' });
-    return true;
-  } catch {
-    if (fs.existsSync(path.join(winPath, 'soffice.exe'))) {
-      if (!process.env.PATH.includes(winPath)) {
-        process.env.PATH = `${winPath};${process.env.PATH}`;
-      }
-      return true;
-    }
-    return false;
-  }
-})();
+const LIBRE_INSTALLED = checkBinary('soffice', [
+  'C:\\Program Files\\LibreOffice\\program\\soffice.exe'
+]);
+
 
 console.log(`[ByteMorph] Engine Load → LibreOffice: ${LIBRE_INSTALLED ? '✅' : '❌ NOT FOUND'}`);
 
