@@ -1,0 +1,405 @@
+/* ── Compression ── */
+
+.compress-section {
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+  background: #05080F;
+}
+
+.compress-card {
+  width: 100%;
+  max-width: 660px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Header */
+.compress-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 24px 36px 0;
+}
+
+.compress-header__icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.15), rgba(124, 58, 237, 0.15));
+  border: 1px solid rgba(34, 211, 238, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+
+.compress-header__title {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+
+.compress-header__sub {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.38);
+}
+
+/* Steps */
+.compress-steps {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  margin-top: 20px;
+}
+
+/* Body */
+.compress-body {
+  padding: 36px;
+}
+
+/* Drop zone — reuses bm-drop from shared */
+.compress-drop-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+}
+
+.compress-drop-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.compress-drop-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 22px;
+}
+
+.compress-drop-tags {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.compress-drop-tag {
+  padding: 3px 9px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* File card */
+.compress-file-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 17px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 11px;
+  margin-bottom: 28px;
+}
+
+.compress-file-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  /* color / bg / border set via --accent inline */
+  background: color-mix(in srgb, var(--accent, #22D3EE) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #22D3EE) 20%, transparent);
+  color: var(--accent, #22D3EE);
+}
+
+.compress-file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.compress-file-name {
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compress-file-meta {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.36);
+  margin-top: 2px;
+}
+
+.compress-file-reset {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+/* Level selector */
+.compress-level-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.36);
+  margin-bottom: 14px;
+  letter-spacing: 0.08em;
+}
+
+.compress-level-row {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.compress-level-card {
+  flex: 1;
+  padding: 14px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.02);
+  transition: all 0.18s;
+  text-align: center;
+}
+
+.compress-level-card--active {
+  border-color: #22D3EE;
+  background: rgba(34, 211, 238, 0.07);
+}
+
+.compress-level-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 4px;
+}
+
+.compress-level-card--active .compress-level-name {
+  color: #22D3EE;
+}
+
+.compress-level-desc {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 6px;
+}
+
+.compress-level-reduction {
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.compress-level-card--active .compress-level-reduction {
+  color: #22D3EE;
+}
+
+/* Estimate panel */
+.compress-estimate {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: rgba(34, 211, 238, 0.04);
+  border: 1px solid rgba(34, 211, 238, 0.12);
+  border-radius: 10px;
+  margin-bottom: 24px;
+}
+
+.compress-estimate__label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.compress-estimate__value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #22D3EE;
+}
+
+.compress-estimate__sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-left: 6px;
+}
+
+/* Compress button */
+.compress-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #22D3EE, #7C3AED);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* Spinner */
+.compress-spinner {
+  width: 72px;
+  height: 72px;
+  margin: 8px auto 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(34, 211, 238, 0.15);
+  border-top-color: #22D3EE;
+  animation: bm-spin 0.9s linear infinite;
+}
+
+.compress-converting {
+  text-align: center;
+  animation: bm-pop 0.3s ease-out;
+}
+
+.compress-converting__title {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.compress-converting__sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.36);
+  margin-bottom: 30px;
+}
+
+.compress-progress-bar {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.compress-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #22D3EE, #7C3AED);
+  transition: width 0.1s linear;
+  animation: bm-pglow 1s ease-in-out infinite;
+}
+
+.compress-pct {
+  font-size: 12px;
+  color: #22D3EE;
+}
+
+/* Done screen */
+.compress-done {
+  text-align: center;
+  animation: bm-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.compress-done__check {
+  width: 72px;
+  height: 72px;
+  margin: 8px auto 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), rgba(124, 58, 237, 0.12));
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #22D3EE;
+}
+
+.compress-done__title {
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+/* Before / After */
+.compress-ba {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 28px;
+}
+
+.compress-ba__item {
+  padding: 12px 20px;
+  border-radius: 10px;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.compress-ba__item--highlight {
+  background: rgba(34, 211, 238, 0.07);
+  border-color: rgba(34, 211, 238, 0.25);
+}
+
+.compress-ba__label {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 4px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.compress-ba__value {
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.compress-ba__item--highlight .compress-ba__value {
+  color: #22D3EE;
+}
+
+/* Done buttons */
+.compress-done__btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.compress-btn-download {
+  padding: 11px 24px;
+  background: linear-gradient(135deg, #22D3EE, #7C3AED);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 18px rgba(34, 211, 238, 0.28);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.compress-btn-reset {
+  padding: 11px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}

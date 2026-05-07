@@ -1,0 +1,353 @@
+/* ── Converter ── */
+
+/* Section */
+.cv-section {
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+  background: #05080F;
+}
+
+/* Card */
+.cv-card {
+  width: 100%;
+  max-width: 660px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 0 70px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+/* Step bar */
+.cv-steps {
+  display: flex;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 0 28px;
+}
+
+.cv-step-item {
+  padding: 13px 14px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  border-bottom: 2px solid transparent;
+  color: rgba(255, 255, 255, 0.27);
+  transition: all 0.3s;
+}
+
+.cv-step-item--active,
+.cv-step-item--done {
+  border-bottom-color: #22D3EE;
+  color: #fff;
+}
+
+.cv-step-bubble {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid transparent;
+}
+
+.cv-step-bubble--active {
+  background: rgba(34, 211, 238, 0.18);
+  border-color: #22D3EE;
+}
+
+.cv-step-bubble--done {
+  background: linear-gradient(135deg, #22D3EE, #7C3AED);
+}
+
+/* Body */
+.cv-body {
+  padding: 36px 36px 44px;
+}
+
+/* Drop zone */
+.cv-drop {
+  border: 2px dashed rgba(34, 211, 238, 0.28);
+  border-radius: 14px;
+  padding: 56px 32px;
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+}
+
+.cv-drop-icon {
+  width: 56px;
+  height: 56px;
+  margin: 0 auto 18px;
+  background: rgba(34, 211, 238, 0.08);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cv-drop-title {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.cv-drop-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.35);
+  margin-bottom: 22px;
+}
+
+.cv-drop-tags {
+  display: flex;
+  gap: 7px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.cv-drop-tag {
+  padding: 3px 9px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* Step 2 — file card */
+.cv-step2-enter {
+  animation: bm-pop 0.3s ease-out;
+}
+
+.cv-file-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 13px 17px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 11px;
+  margin-bottom: 24px;
+}
+
+/* .cv-file-badge — color/border/bg stay inline via --accent */
+.cv-file-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 9px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 700;
+  background: color-mix(in srgb, var(--accent, #22D3EE) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #22D3EE) 20%, transparent);
+  color: var(--accent, #22D3EE);
+}
+
+.cv-file-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.cv-file-name {
+  font-size: 13px;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cv-file-meta {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.36);
+  margin-top: 2px;
+}
+
+.cv-file-reset {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.cv-label-sm {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.36);
+  margin-bottom: 14px;
+  letter-spacing: 0.08em;
+}
+
+/* Format badges */
+.cv-format-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-bottom: 28px;
+}
+
+.cv-format-badge {
+  padding: 7px 13px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.cv-format-badge--active {
+  border-color: var(--accent, #22D3EE);
+  background: color-mix(in srgb, var(--accent, #22D3EE) 11%, transparent);
+  color: var(--accent, #22D3EE);
+}
+
+/* Convert button */
+.cv-convert-btn {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  font-family: 'DM Sans', sans-serif;
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.4);
+  cursor: not-allowed;
+  opacity: 0.4;
+  transition: opacity 0.2s;
+}
+
+.cv-convert-btn--ready {
+  background: linear-gradient(135deg, #22D3EE, #7C3AED);
+  color: #fff;
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Step 3 — progress */
+.cv-converting {
+  text-align: center;
+  animation: bm-pop 0.3s ease-out;
+}
+
+.cv-spinner {
+  width: 72px;
+  height: 72px;
+  margin: 8px auto 24px;
+  border-radius: 50%;
+  border: 2px solid rgba(34, 211, 238, 0.15);
+  border-top-color: #22D3EE;
+  animation: bm-spin 0.9s linear infinite;
+}
+
+.cv-converting-title {
+  font-size: 17px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.cv-converting-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.36);
+  margin-bottom: 30px;
+}
+
+.cv-progress-bar {
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.cv-progress-fill {
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(90deg, #22D3EE, #7C3AED);
+  transition: width 0.1s linear;
+  animation: bm-pglow 1s ease-in-out infinite;
+}
+
+.cv-progress-pct {
+  font-size: 12px;
+  color: #22D3EE;
+}
+
+.cv-accent {
+  color: var(--accent, #22D3EE);
+}
+
+.cv-cyan {
+  color: #22D3EE;
+}
+
+/* Step 4 — done */
+.cv-done {
+  text-align: center;
+  animation: bm-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.cv-done-check {
+  width: 72px;
+  height: 72px;
+  margin: 8px auto 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, rgba(34, 211, 238, 0.12), rgba(124, 58, 237, 0.12));
+  border: 1px solid rgba(34, 211, 238, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #22D3EE;
+}
+
+.cv-done-title {
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 7px;
+}
+
+.cv-done-meta {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.38);
+  margin-bottom: 28px;
+}
+
+.cv-done-btns {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.cv-btn-download {
+  padding: 11px 24px;
+  background: linear-gradient(135deg, #22D3EE, #7C3AED);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 4px 18px rgba(34, 211, 238, 0.28);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.cv-btn-reset {
+  padding: 11px 24px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: rgba(255, 255, 255, 0.58);
+  font-size: 13px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}

@@ -1,0 +1,129 @@
+/* ── Formats ── */
+
+.formats-section {
+  padding: 20px 24px 80px;
+  background: #05080F;
+}
+
+.formats-inner {
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.formats-header {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.formats-title {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: clamp(26px, 3.5vw, 42px);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.formats-subtitle {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 14px;
+}
+
+/* Tab bar */
+.formats-tabs {
+  display: flex;
+  gap: 3px;
+  padding: 4px;
+  overflow-x: auto;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 11px;
+  margin-bottom: 24px;
+  scrollbar-width: none;
+}
+
+.formats-tabs::-webkit-scrollbar {
+  display: none;
+}
+
+.formats-tab {
+  padding: 7px 14px;
+  border-radius: 7px;
+  font-size: 12px;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: rgba(255, 255, 255, 0.36);
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s;
+  white-space: nowrap;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.formats-tab--active {
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 500;
+  /* color set via --tab-color inline */
+  color: var(--tab-color, #22D3EE);
+}
+
+.formats-tab:hover:not(.formats-tab--active) {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.formats-tab__dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.formats-tab--active .formats-tab__dot {
+  background: var(--tab-color, #22D3EE);
+}
+
+.formats-tab__count {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* Format card grid */
+.formats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+  gap: 8px;
+}
+
+.formats-card {
+  padding: 13px 8px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 9px;
+  text-align: center;
+  transition: all 0.18s;
+  cursor: default;
+}
+
+.formats-card:hover {
+  transform: translateY(-2px) scale(1.05);
+  /* border/bg set via JS event handlers because color is dynamic per tab */
+}
+
+.formats-card__name {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  /* color via --tab-color (set on parent grid) */
+  color: var(--tab-color, #22D3EE);
+}
+
+.formats-card__cat {
+  font-size: 10px;
+  color: rgba(255, 255, 255, 0.22);
+  margin-top: 3px;
+}

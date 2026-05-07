@@ -1,0 +1,46 @@
+/* ── Footer ── */
+
+.bm-footer {
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  padding: 22px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: #05080F;
+}
+
+.bm-footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bm-footer__logo {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #22D3EE, #7C3AED);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.bm-footer__name {
+  font-family: 'Playfair Display', 'Georgia', serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.bm-footer__info,
+.bm-footer__credit {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.2);
+}
